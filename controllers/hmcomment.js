@@ -21,38 +21,6 @@ router.get('/hmcreate', (req, res) => {
     }
 });
 
-
-// router.post('/create', (req, res) => {
-
-//     if (req.session.uname != "") {
-//         rtag = req.session.uname;
-//         var newPost = {
-//             pTitle: req.body.pTitle,
-//             rName: req.body.rName,
-//             rPrice: req.body.rPrice,
-//             rType: req.body.rType,
-//             rDesc: req.body.rDesc,
-//             rTag: rtag
-//         };
-
-//         userModel.insert(newPost, function (status) {
-//             console.log(status);
-//             if (!status) {
-//                 res.redirect('/home');
-//             } else {
-//                 res.redirect('/login');
-//             }
-
-//         })
-
-//     }
-//     else {
-//         res.redirect('/login');
-//     }
-
-
-// });
-
 router.get('/hmedit/:id', (req, res) => {
 
     if (req.session.uname != "") {
@@ -81,13 +49,7 @@ router.post('/hmedit/:id', (req, res) => {
 
         var i = req.params.id;
         var cResponse = req.body.comment;
-        // var editPost = {
-        //     cResponse: req.body.cResponse,
-
-
-        // };
-
-        //console.log(editPost.pTitle);
+       
 
         commentModel.update(i, cResponse, function (status) {
 
@@ -101,44 +63,10 @@ router.post('/hmedit/:id', (req, res) => {
         })
 
     }
-    // else{
-    // 		res.redirect('/login');
-    // 	}
+   
 
 
 });
-
-// router.get('/delete/:id', (req, res) => {
-
-
-
-
-// 	res.render('comment/delete');
-
-
-
-// 	//console.log(editUser.eName);
-
-
-
-
-// });
-
-// router.post('/delete/:id', (req, res) => {
-
-// 	var i = req.params.id;
-
-// 	commentModel.delete(i, function (status) {
-
-// 		if (!status) {
-
-// 			res.redirect('/home/commentlist');
-// 		} else {
-// 			res.redirect('/login');
-// 		}
-
-// 	})
-// });
 
 
 module.exports = router;

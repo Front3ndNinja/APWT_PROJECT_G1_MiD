@@ -77,7 +77,7 @@ router.get('/hmedit/:id', (req, res) => {
 router.post('/hmedit/:id', (req, res) => {
 
 	if (req.session.uname != "") {
-		
+
 		var i = req.params.id;
 
 		var editPost = {
@@ -87,7 +87,7 @@ router.post('/hmedit/:id', (req, res) => {
 			rType: req.body.rType,
 			rDesc: req.body.rDesc,
 			avail: req.body.avail,
-			
+
 		};
 
 		console.log(editPost.pTitle);
@@ -114,18 +114,8 @@ router.post('/hmedit/:id', (req, res) => {
 );
 
 router.get('/hmdelete/:id', (req, res) => {
-
-
-
-
+	
 	res.render('user/hmdelete');
-
-
-
-	//console.log(editUser.eName);
-
-
-
 
 });
 
