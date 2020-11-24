@@ -11,10 +11,10 @@ router.get('*', (req, res, next) => {
 
 });
 
-router.get('/create', (req, res) => {
+router.get('/hmcreate', (req, res) => {
     if (req.session.uname != "") {
 
-        res.render('comment/create');
+        res.render('comment/hmcreate');
     }
     else {
         res.redirect('/login');
@@ -53,7 +53,7 @@ router.get('/create', (req, res) => {
 
 // });
 
-router.get('/edit/:id', (req, res) => {
+router.get('/hmedit/:id', (req, res) => {
 
     if (req.session.uname != "") {
 
@@ -61,7 +61,7 @@ router.get('/edit/:id', (req, res) => {
 
         commentModel.getById(i, function (results) {
             console.log(i);
-            res.render('comment/edit', { users: results });
+            res.render('comment/hmedit', { users: results });
 
         })
 
@@ -75,7 +75,7 @@ router.get('/edit/:id', (req, res) => {
 
 });
 
-router.post('/edit/:id', (req, res) => {
+router.post('/hmedit/:id', (req, res) => {
 
     if (req.session.uname != "") {
 
